@@ -1,0 +1,5 @@
+Contact: mailto:sembsui@gmail.com
+Contact: https://wa.me/62895351432524
+Expires: 2027-01-01T00:00:00Z
+Policy: https://semb-commits.github.io/whebsiteku/anti-phising.html
+Preferred-Languages: id, en
