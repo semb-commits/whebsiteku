@@ -10,8 +10,5 @@
   },
   "action": {
     "default_title": "S-Developer Anti-Phishing"
-  },
-  "icons": {
-    "128": "icon128.png"
   }
 }
