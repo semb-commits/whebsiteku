@@ -25,17 +25,36 @@ body {
   color: #ffffff;
 }
 .container {max-width:700px;margin:0 auto;padding:20px;}
+
+/* Header rapi di mobile */
 .header {
   background:#0a0f1c;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  padding:12px 16px;
   border-bottom:1px solid rgba(255,255,255,0.1);
   position:sticky;top:0;z-index:100;
 }
-.logo {color:#ffc107;font-size:28px;font-weight:bold;}
-.menu a {color:#fff;text-decoration:none;margin-left:20px;font-weight:500;}
+.header-wrap {
+  max-width:700px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.logo {color:#ffc107;font-size:26px;font-weight:bold;}
+.menu {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.menu a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  font-size:14px;
+  padding:6px 0;
+}
 .menu a:hover {color:#ffc107;}
 
 .section {padding:40px 20px;}
@@ -132,18 +151,29 @@ footer a {
   color:#ffc107;
   text-decoration:none;
 }
+
+/* Responsive: di HP menu jadi kecil & rapi */
+@media (max-width: 480px) {
+  .logo {font-size:24px;}
+  .menu {gap:10px;}
+  .menu a {font-size:13px;}
+  .section {padding:30px 16px;}
+  h1 {font-size:26px !important;}
+}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">Sdev</div>
-  <div class="menu">
-    <a href="#layanan">Layanan</a>
-    <a href="#profile">Profile</a>
-    <a href="#portofolio">Portofolio</a>
-    <a href="#antiphising">Anti-Phising</a>
-    <a href="#kontak">Kontak</a>
+  <div class="header-wrap">
+    <div class="logo">Sdev</div>
+    <div class="menu">
+      <a href="#layanan">Layanan</a>
+      <a href="#profile">Profile</a>
+      <a href="#portofolio">Portofolio</a>
+      <a href="#antiphising">Anti-Phising</a>
+      <a href="#kontak">Kontak</a>
+    </div>
   </div>
 </div>
 
