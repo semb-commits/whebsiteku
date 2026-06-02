@@ -4,262 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sdev - Jasa Website & Pembuatan Aplikasi</title>
-<meta name="description" content="Jasa pembuatan website, desain UI/UX, dan digital marketing untuk UMKM.">
-
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <style>
 * {margin:0;padding:0;box-sizing:border-box;}
-html {scroll-behavior:smooth;}
 body {
-  font-family:'Plus Jakarta Sans',sans-serif;
-  color:#ffffff;
-  line-height:1.6;
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-  min-height:100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0a0f1c;
+  color: #ffffff;
 }
+.container {max-width:700px;margin:0 auto;padding:20px;}
+.header {
+  background:#0a0f1c;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.logo {color:#ffc107;font-size:28px;font-weight:bold;}
+.menu {font-size:30px;color:#fff;cursor:pointer;}
 
-.container {max-width:1100px;margin:0 auto;padding:0 2rem;}
-.navbar {position:sticky;top:0;background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1);z-index:100;}
-.nav-container {max-width:1100px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
-.logo {color:#ffcd57;font-weight:700;font-size:1.5rem;}
-.nav-links {display:flex;gap:2rem;align-items:center;}
-.nav-links a {cursor:pointer;text-decoration:none;color:#ffffff;font-weight:500;transition:0.3s;}
-.nav-links a:hover {color:#ffcd57;}
-.btn-nav {background:#ffcd57;padding:8px 20px;border-radius:50px;color:#0f172a !important;font-weight:600;}
-.menu-toggle {display:none;font-size:1.8rem;cursor:pointer;color:#ffffff;}
-
-.hero {min-height:90vh;display:flex;align-items:center;text-align:center;padding:4rem 2rem;}
-.hero h1 {font-size:3.5rem;margin-bottom:1rem;color:#ffffff;}
-.hero p {font-size:1.2rem;margin-bottom:2rem;color:#e2e8f0;}
-.hero-buttons {display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-primary,.btn-secondary {padding:14px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;transition:0.3s;font-size:1rem;text-decoration:none;display:inline-block;}
-.btn-primary {background:#ffcd57;color:#0f172a;}
-.btn-secondary {background:transparent;color:white;border:2px solid #ffcd57;}
-.btn-primary:hover,.btn-secondary:hover {transform:translateY(-3px);box-shadow:0 10px 25px rgba(255,205,87,0.3);}
-
-.section {padding:5rem 0;}
-.bg-light {background:rgba(30,41,59,0.6);}
-.section h2 {text-align:center;font-size:2.5rem;margin-bottom:3rem;color:#ffcd57;}
-
-.grid-3 {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
-
-.card-link {text-decoration:none;display:block;}
+.section {padding:30px 20px;}
 .card {
-  background:rgba(255,255,255,0.08);
-  padding:2rem;
+  background:#1a2233;
+  border:1px solid #2d3748;
   border-radius:12px;
-  border:1px solid rgba(255,255,255,0.2);
-  transition:0.3s;
-  cursor:pointer;
-}
-.card:hover {transform:translateY(-5px);background:rgba(255,255,255,0.15);border-color:#ffcd57;}
-.icon {font-size:3rem;margin-bottom:1rem;}
-.card h3 {margin-bottom:1rem;color:#ffcd57;font-size:1.3rem;}
-.card p {color:#e2e8f0;font-size:1rem;}
-.card ul {margin-top:1rem;padding-left:1.2rem;color:#cbd5e1;}
-.card ul li {margin:0.5rem 0;font-size:0.95rem;}
-
-.about {display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
-.about img {width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.2);}
-.about h3 {color:#ffcd57;margin:1.5rem 0 0.5rem;}
-.about p {color:#e2e8f0;margin-bottom:1rem;}
-.about ul {list-style:none;margin-top:1rem;}
-.about li {margin:0.8rem 0;font-weight:500;color:#e2e8f0;}
-.about li::before {content:"✓ ";color:#ffcd57;font-weight:700;}
-
-.card-portfolio {
-  position:relative;
-  border-radius:12px;
-  overflow:hidden;
-  cursor:pointer;
-  display:block;
+  padding:25px;
+  margin-bottom:20px;
   text-decoration:none;
-  border:2px solid #ffcd57;
-  background:#1e293b;
+  display:block;
+  transition:0.3s;
 }
-.card-portfolio img {width:100%;display:block;transition:0.3s;}
-.card-portfolio:hover img {transform:scale(1.05);}
-.portfolio-info {
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  background:linear-gradient(transparent,rgba(0,0,0,0.95));
-  color:white;
-  padding:1.5rem;
+.card:active {transform:scale(0.98);background:#232b3d;}
+.card-icon {font-size:40px;margin-bottom:15px;}
+.card h3 {
+  color:#ffc107;
+  font-size:22px;
+  margin-bottom:12px;
 }
-.portfolio-info h4 {font-size:1.2rem;margin-bottom:0.3rem;color:#ffffff;}
-.portfolio-info p {font-size:0.95rem;color:#e2e8f0;}
+.card p {
+  color:#cbd5e1;
+  font-size:15px;
+  line-height:1.6;
+}
+.card ul {
+  color:#94a3b8;
+  font-size:14px;
+  margin-top:12px;
+  padding-left:20px;
+}
+.card ul li {margin:6px 0;}
 
-.contact {text-align:center;}
-.contact h2 {margin-bottom:1rem;color:#ffcd57;}
-.contact p {margin-bottom:2rem;font-size:1.1rem;color:#e2e8f0;}
-footer {background:rgba(0,0,0,0.5);color:#94a3b8;text-align:center;padding:2rem;border-top:1px solid rgba(255,255,255,0.1);}
-
-@media(max-width:768px){
-.hero h1{font-size:2.2rem;}
-.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(15,23,42,0.98);flex-direction:column;padding:1rem;border-bottom:1px solid rgba(255,255,255,0.1);}
-.nav-links.active{display:flex;}
-.menu-toggle{display:block;}
-.about{grid-template-columns:1fr;}
-.section h2{font-size:2rem;}
-}
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <h2 class="logo">Sdev</h2>
-    <div class="nav-links" id="navLinks">
-      <a href="#layanan">Layanan IT</a>
-      <a href="#tentang">Halo saya Sdev</a>
-      <a href="#portofolio">Portofolio</a>
-      <a href="#kontak" class="btn-nav">Kontak</a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  </div>
-</nav>
+<div class="header">
+  <div class="logo">Sdev</div>
+  <div class="menu">☰</div>
+</div>
 
-<section class="hero">
-  <div class="container" data-aos="fade-up">
-    <h1>Bangun Website Profesional untuk UMKM Kamu</h1>
-    <p>Cepat, responsif, dan SEO-friendly. Fokus jualan, urusan teknis serahin ke kami.</p>
-    <div class="hero-buttons">
-      <a href="#kontak" class="btn-primary">Konsultasi Gratis</a>
-      <a href="#portofolio" class="btn-secondary">Lihat Kerjaan</a>
-    </div>
-  </div>
-</section>
+<div class="section">
+  
+  <!-- Website Company Profile -->
+  <a href="https://wa.me/62895351432524?text=Halo%20mau%20buat%20Website%20Company%20Profile" class="card">
+    <h3>Website Company Profile</h3>
+    <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
+    <ul>
+      <li><strong>Apa itu:</strong> Website resmi perusahaan/UMKM untuk perkenalan bisnis online</li>
+      <li><strong>Isinya:</strong> Beranda, Tentang Kami, Layanan, Kontak, Lokasi Google Maps</li>
+      <li><strong>Kelebihan:</strong> Loading cepat, bisa diakses 24 jam, bikin bisnis kelihatan profesional</li>
+    </ul>
+  </a>
 
-<section id="layanan" class="section">
-  <div class="container">
-    <h2 data-aos="fade-up">Layanan Kami</h2>
-    <div class="grid-3">
-      
-      <a href="https://wa.me/62895351432524" class="card-link" data-aos="fade-up" data-aos-delay="100">
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>Website Company Profile</h3>
-          <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
-          <ul>
-            <li>Desain custom sesuai brand</li>
-            <li>Loading < 3 detik</li>
-            <li>Mobile responsive 100%</li>
-            <li>Integrasi WhatsApp & Maps</li>
-          </ul>
-        </div>
-      </a>
+  <!-- Desain UI/UX -->
+  <a href="https://wa.me/62895351432524?text=Halo%20mau%20jasa%20Desain%20UI%2FUX" class="card">
+    <div class="card-icon">🎨</div>
+    <h3>Desain UI/UX</h3>
+    <p>Desain modern yang bikin pengunjung betah dan konversi naik.</p>
+    <ul>
+      <li><strong>UI:</strong> Tampilan visual website/app. Warna, tombol, layout biar enak dilihat</li>
+      <li><strong>UX:</strong> Pengalaman user. Bikin navigasi gampang, gak bikin bingung</li>
+      <li><strong>Hasil:</strong> Desain di Figma siap di-code. Bikin pengunjung betah & beli</li>
+    </ul>
+  </a>
 
-      <a href="https://wa.me/62895351432524" class="card-link" data-aos="fade-up" data-aos-delay="200">
-        <div class="card">
-          <div class="icon">🎨</div>
-          <h3>Desain UI/UX</h3>
-          <p>Desain modern yang bikin pengunjung betah dan konversi naik. Fokus ke pengalaman user.</p>
-          <ul>
-            <li>Wireframe & prototyping di Figma</li>
-            <li>UI clean & modern trend 2026</li>
-            <li>UX research & user flow</li>
-            <li>Siap di-code jadi website/app</li>
-          </ul>
-        </div>
-      </a>
+  <!-- SEO & Digital Marketing -->
+  <a href="https://wa.me/62895351432524?text=Halo%20mau%20jasa%20SEO" class="card">
+    <div class="card-icon">📈</div>
+    <h3>SEO & Digital Marketing</h3>
+    <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial.</p>
+    <ul>
+      <li><strong>SEO:</strong> Optimasi biar website muncul di halaman 1 Google saat orang cari</li>
+      <li><strong>Caranya:</strong> Riset keyword, optimasi judul, kecepatan web, Google Business</li>
+      <li><strong>Hasil:</strong> Datangin pelanggan gratis dari Google tanpa iklan berbayar</li>
+    </ul>
+  </a>
 
-      <a href="https://wa.me/62895351432524" class="card-link" data-aos="fade-up" data-aos-delay="300">
-        <div class="card">
-          <div class="icon">📈</div>
-          <h3>SEO & Digital Marketing</h3>
-          <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial. Traffic organik naik.</p>
-          <ul>
-            <li>On-page SEO: meta, struktur, speed</li>
-            <li>Keyword research & content plan</li>
-            <li>Google Business Profile setup</li>
-            <li>Integrasi Google Analytics</li>
-          </ul>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<section id="tentang" class="section bg-light">
-  <div class="container about">
-    <div data-aos="fade-right">
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500" alt="Proses Kerja">
-    </div>
-    <div data-aos="fade-left">
-      <h2>Halo, Saya Sdev</h2>
-      <p>Developer fullstack freelance yang udah 3+ tahun bantu UMKM dan startup go digital. Fokus saya bikin website yang cepat, gampang dipakai, dan beneran ngasilin penjualan.</p>
-      
-      <h3>Proses Kerja Saya:</h3>
-      <p><strong>1. Konsultasi & Briefing</strong><br>
-      Kita ngobrol dulu kebutuhan, target market, dan budget. Gratis, tanpa komitmen.</p>
-      
-      <p><strong>2. Desain & Revisi</strong><br>
-      Saya bikin desain di Figma. Lo bisa revisi sampe fix sebelum di-code.</p>
-      
-      <p><strong>3. Development</strong><br>
-      Code dari 0 pake HTML, CSS, JS, React. Hosting di Netlify/Vercel biar cepat & gratis.</p>
-      
-      <p><strong>4. Launching & Support</strong><br>
-      Website live, gue kasih tutorial edit. Support 30 hari gratis kalau ada bug.</p>
-    </div>
-  </div>
-</section>
-
-<section id="portofolio" class="section">
-  <div class="container">
-    <h2 data-aos="fade-up">Portofolio</h2>
-    <div class="grid-3">
-      <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" class="card-portfolio" data-aos="zoom-in" data-aos-delay="100">
-        <img src="https://via.placeholder.com/400x300/1e293b/ffffff?text=Penipuan" alt="Project Penipuan">
-        <div class="portfolio-info">
-          <h4>Penipuan</h4>
-          <p>Web edukasi & awareness anti penipuan online</p>
-        </div>
-      </a>
-      <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" class="card-portfolio" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://via.placeholder.com/400x300/1e293b/ffffff?text=Kasir+Anis" alt="Project Kasir">
-        <div class="portfolio-info">
-          <h4>Kasir Toko Anis</h4>
-          <p>Sistem kasir digital POS dengan scan barcode</p>
-        </div>
-      </a>
-      <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" class="card-portfolio" data-aos="zoom-in" data-aos-delay="300">
-        <img src="https://via.placeholder.com/400x300/1e293b/ffffff?text=Warkop+Singo" alt="Project Warkop">
-        <div class="portfolio-info">
-          <h4>Warkop Singo</h4>
-          <p>Website company profile untuk UMKM kuliner</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="kontak" class="section">
-  <div class="container contact" data-aos="fade-up">
-    <h2>Siap Mulai Project?</h2>
-    <p>Kirim pesan ke WhatsApp, respon rata-rata < 1 jam di jam kerja.</p>
-    <a href="https://wa.me/62895351432524" class="btn-primary">Chat: 0895-3514-32524</a>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© 2026 Sdev. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({duration:800,once:true,offset:100});
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}
-document.querySelectorAll('.nav-links a').forEach(link=>{
-  link.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('active');});
-</script>
+</div>
 
 </body>
-  </html>
+    </html>
