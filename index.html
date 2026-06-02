@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sdev - Jasa Website & Pembuatan Aplikasi</title>
+<title>Sdev - Jasa Website & Sistem Kasir Digital</title>
+<meta name="description" content="Jasa pembuatan website, aplikasi kasir digital, fullstack serverless. Konsultasi gratis.">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
 * {margin:0;padding:0;box-sizing:border-box;}
+html {scroll-behavior:smooth;}
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
   background: #0a0f1c;
   color: #ffffff;
 }
@@ -19,11 +25,20 @@ body {
   justify-content:space-between;
   align-items:center;
   border-bottom:1px solid rgba(255,255,255,0.1);
+  position:sticky;top:0;z-index:100;
 }
 .logo {color:#ffc107;font-size:28px;font-weight:bold;}
-.menu {font-size:30px;color:#fff;cursor:pointer;}
+.menu a {color:#fff;text-decoration:none;margin-left:20px;font-weight:500;}
+.menu a:hover {color:#ffc107;}
 
-.section {padding:30px 20px;}
+.section {padding:40px 20px;}
+.section h2 {
+  text-align:center;
+  font-size:28px;
+  color:#ffc107;
+  margin-bottom:30px;
+}
+
 .card {
   background:#1a2233;
   border:1px solid #2d3748;
@@ -35,7 +50,6 @@ body {
   transition:0.3s;
 }
 .card:active {transform:scale(0.98);background:#232b3d;}
-.card-icon {font-size:40px;margin-bottom:15px;}
 .card h3 {
   color:#ffc107;
   font-size:22px;
@@ -54,53 +68,200 @@ body {
 }
 .card ul li {margin:6px 0;}
 
+.skills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
+}
+.skill {
+  background:#ffc107;
+  color:#0a0f1c;
+  padding:8px 15px;
+  border-radius:20px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.btn {
+  display:inline-block;
+  padding:14px 30px;
+  background:#ffc107;
+  color:#0a0f1c;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:8px;
+  text-align:center;
+  margin-top:15px;
+}
+.btn:hover {background:#ffcd57;}
+
+.portfolio-img {
+  width:100%;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+footer {
+  text-align:center;
+  padding:30px 20px;
+  background:#0a0f1c;
+  color:#94a3b8;
+  border-top:1px solid rgba(255,255,255,0.1);
+  font-size:14px;
+}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="logo">Sdev</div>
-  <div class="menu">☰</div>
+  <div class="menu">
+    <a href="#layanan">Layanan</a>
+    <a href="#profile">Profile</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#kontak">Kontak</a>
+  </div>
 </div>
 
-<div class="section">
-  
-  <!-- Website Company Profile -->
-  <a href="https://wa.me/62895351432524?text=Halo%20mau%20buat%20Website%20Company%20Profile" class="card">
-    <h3>Website Company Profile</h3>
-    <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
-    <ul>
-      <li><strong>Apa itu:</strong> Website resmi perusahaan/UMKM untuk perkenalan bisnis online</li>
-      <li><strong>Isinya:</strong> Beranda, Tentang Kami, Layanan, Kontak, Lokasi Google Maps</li>
-      <li><strong>Kelebihan:</strong> Loading cepat, bisa diakses 24 jam, bikin bisnis kelihatan profesional</li>
-    </ul>
-  </a>
-
-  <!-- Desain UI/UX -->
-  <a href="https://wa.me/62895351432524?text=Halo%20mau%20jasa%20Desain%20UI%2FUX" class="card">
-    <div class="card-icon">🎨</div>
-    <h3>Desain UI/UX</h3>
-    <p>Desain modern yang bikin pengunjung betah dan konversi naik.</p>
-    <ul>
-      <li><strong>UI:</strong> Tampilan visual website/app. Warna, tombol, layout biar enak dilihat</li>
-      <li><strong>UX:</strong> Pengalaman user. Bikin navigasi gampang, gak bikin bingung</li>
-      <li><strong>Hasil:</strong> Desain di Figma siap di-code. Bikin pengunjung betah & beli</li>
-    </ul>
-  </a>
-
-  <!-- SEO & Digital Marketing -->
-  <a href="https://wa.me/62895351432524?text=Halo%20mau%20jasa%20SEO" class="card">
-    <div class="card-icon">📈</div>
-    <h3>SEO & Digital Marketing</h3>
-    <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial.</p>
-    <ul>
-      <li><strong>SEO:</strong> Optimasi biar website muncul di halaman 1 Google saat orang cari</li>
-      <li><strong>Caranya:</strong> Riset keyword, optimasi judul, kecepatan web, Google Business</li>
-      <li><strong>Hasil:</strong> Datangin pelanggan gratis dari Google tanpa iklan berbayar</li>
-    </ul>
-  </a>
-
+<!-- Hero -->
+<div class="section" data-aos="fade-up">
+  <div class="container" style="text-align:center;">
+    <h1 style="font-size:32px;margin-bottom:15px;color:#ffffff;">Bikin Website & Sistem Kasir Digital Tanpa Ribet</h1>
+    <p style="color:#cbd5e1;font-size:16px;margin-bottom:25px;">Fullstack Serverless, Cepat, SEO Friendly. Konsultasi Gratis.</p>
+    <a href="https://wa.me/62895351432524" class="btn">Konsultasi Gratis via WhatsApp</a>
+  </div>
 </div>
+
+<!-- Layanan -->
+<div id="layanan" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Layanan Kami</h2>
+    
+    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Website Company Profile</h3>
+      <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
+      <ul>
+        <li><strong>Apa itu:</strong> Website resmi perusahaan/UMKM untuk perkenalan bisnis online</li>
+        <li><strong>Isinya:</strong> Beranda, Tentang Kami, Layanan, Kontak, Lokasi Google Maps</li>
+        <li><strong>Kelebihan:</strong> Loading cepat, bisa diakses 24 jam, bikin bisnis kelihatan profesional</li>
+      </ul>
+    </a>
+
+    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3>🎨 Desain UI/UX</h3>
+      <p>Desain modern yang bikin pengunjung betah dan konversi naik.</p>
+      <ul>
+        <li><strong>UI:</strong> Tampilan visual website/app. Warna, tombol, layout biar enak dilihat</li>
+        <li><strong>UX:</strong> Pengalaman user. Bikin navigasi gampang, gak bikin bingung</li>
+        <li><strong>Hasil:</strong> Desain di Figma siap di-code. Bikin pengunjung betah & beli</li>
+      </ul>
+    </a>
+
+    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="300">
+      <h3>📈 SEO & Digital Marketing</h3>
+      <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial.</p>
+      <ul>
+        <li><strong>SEO:</strong> Optimasi biar website muncul di halaman 1 Google saat orang cari</li>
+        <li><strong>Caranya:</strong> Riset keyword, optimasi judul, kecepatan web, Google Business</li>
+        <li><strong>Hasil:</strong> Datangin pelanggan gratis dari Google tanpa iklan berbayar</li>
+      </ul>
+    </a>
+
+    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="400">
+      <h3>💻 Sistem Kasir Digital</h3>
+      <p>Sistem kasir mirip Alfamart. Tinggal scan barcode, bayar, laporan otomatis.</p>
+      <ul>
+        <li>Scan barcode produk langsung tit</li>
+        <li>Manajemen stok & laporan penjualan otomatis</li>
+        <li>Print struk, laporan laci kasir, multi user</li>
+        <li>Bisa offline dan online</li>
+      </ul>
+    </a>
+
+  </div>
+</div>
+
+<!-- Profile & Skills -->
+<div id="profile" class="section" style="background:#1a2233;">
+  <div class="container">
+    <h2 data-aos="fade-up">Tentang Saya</h2>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Halo, Saya Sdev</h3>
+      <p>Developer Fullstack Freelance. Fokus bantu UMKM go digital tanpa ribet dan mahal. Udah 3+ tahun bikin website, aplikasi web, dan sistem kasir.</p>
+      
+      <h3 style="margin-top:20px;">Skill Yang Saya Kuasai:</h3>
+      <div class="skills">
+        <div class="skill">Fullstack Serverless</div>
+        <div class="skill">Frontend</div>
+        <div class="skill">Backend</div>
+        <div class="skill">React.js</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Pembuatan Aplikasi Kasir Digital</div>
+        <div class="skill">Sistem Mirip Alfamart</div>
+        <div class="skill">SEO Optimization</div>
+      </div>
+
+      <h3 style="margin-top:20px;">Proses Kerja:</h3>
+      <ul>
+        <li><strong>Konsultasi Gratis:</strong> Ngobrol kebutuhan & budget dulu, tanpa komitmen</li>
+        <li><strong>Desain:</strong> Bikin desain di Figma, revisi sampai fix</li>
+        <li><strong>Development:</strong> Code dari 0, hosting cepat di Netlify/Vercel</li>
+        <li><strong>Support:</strong> Garansi 30 hari + tutorial edit</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Portofolio -->
+<div id="portofolio" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Portofolio Project</h2>
+    
+    <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" class="card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://via.placeholder.com/600x350/1a2233/ffffff?text=Project+Penipuan" class="portfolio-img" alt="Project Penipuan">
+      <h3>Penipuan</h3>
+      <p>Website edukasi & awareness anti penipuan online. Responsive dan SEO friendly.</p>
+    </a>
+
+    <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" class="card" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://via.placeholder.com/600x350/1a2233/ffffff?text=Kasir+Toko+Anis" class="portfolio-img" alt="Kasir Toko Anis">
+      <h3>Kasir Toko Anis</h3>
+      <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok, laporan penjualan otomatis.</p>
+    </a>
+
+    <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" class="card" data-aos="zoom-in" data-aos-delay="300">
+      <img src="https://via.placeholder.com/600x350/1a2233/ffffff?text=Warkop+Singo" class="portfolio-img" alt="Warkop Singo">
+      <h3>Warkop Singo</h3>
+      <p>Website company profile untuk UMKM kuliner. Mobile friendly dan cepat.</p>
+    </a>
+
+  </div>
+</div>
+
+<!-- Kontak -->
+<div id="kontak" class="section" style="background:#1a2233;text-align:center;">
+  <div class="container" data-aos="fade-up">
+    <h2>Siap Mulai Project?</h2>
+    <p style="color:#cbd5e1;font-size:16px;margin-bottom:20px;">Konsultasi gratis via WhatsApp. Respon cepat di jam kerja.</p>
+    <a href="https://wa.me/62895351432524" class="btn">Chat Sekarang: 0895-3514-32524</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Sdev. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 800,
+  once: true,
+  offset: 100
+});
+</script>
 
 </body>
-    </html>
+      </html>
