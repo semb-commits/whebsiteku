@@ -7,14 +7,14 @@
 <meta name="description" content="Jasa pembuatan website, aplikasi kasir digital, fullstack serverless. Konsultasi gratis.">
 
 <!-- Security Headers - Anti Phising & Clickjacking -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-4NzSKymBG8YrxxD1mU0iMTy9fZow+2UAZgF+eBkW7b7jw2B6b1s0U6YzPzX+QmL7" crossorigin="anonymous">
 
 <style>
 * {margin:0;padding:0;box-sizing:border-box;}
@@ -182,7 +182,7 @@ footer a {
   <div class="container" style="text-align:center;">
     <h1 style="font-size:32px;margin-bottom:15px;color:#ffffff;">Bikin Website & Sistem Kasir Digital Tanpa Ribet</h1>
     <p style="color:#cbd5e1;font-size:16px;margin-bottom:25px;">Fullstack Serverless, Cepat, SEO Friendly. Konsultasi Gratis.</p>
-    <a href="https://wa.me/62895351432524" class="btn">Konsultasi Gratis via WhatsApp</a>
+    <a href="#" onclick="openWA()" class="btn">Konsultasi Gratis via WhatsApp</a>
   </div>
 </div>
 
@@ -191,7 +191,7 @@ footer a {
   <div class="container">
     <h2 data-aos="fade-up">Layanan Kami</h2>
 
-    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="100">
+    <a href="#" onclick="openWA()" class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Website Company Profile</h3>
       <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
       <ul>
@@ -200,17 +200,17 @@ footer a {
       </ul>
     </a>
 
-    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="200">
+    <a href="#" onclick="openWA()" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>🎨 Desain UI/UX</h3>
       <p>Desain modern yang bikin pengunjung betah dan konversi naik.</p>
     </a>
 
-    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="300">
+    <a href="#" onclick="openWA()" class="card" data-aos="fade-up" data-aos-delay="300">
       <h3>📈 SEO & Digital Marketing</h3>
       <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial.</p>
     </a>
 
-    <a href="https://wa.me/62895351432524" class="card" data-aos="fade-up" data-aos-delay="400">
+    <a href="#" onclick="openWA()" class="card" data-aos="fade-up" data-aos-delay="400">
       <h3>💻 Sistem Kasir Digital</h3>
       <p>Sistem kasir mirip Alfamart. Tinggal scan barcode, bayar, laporan otomatis.</p>
     </a>
@@ -241,17 +241,17 @@ footer a {
   <div class="container">
     <h2 data-aos="fade-up">Portofolio Project</h2>
 
-    <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" class="card" data-aos="fade-up" data-aos-delay="100">
+    <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Penipuan</h3>
       <p>Website edukasi & awareness anti penipuan online.</p>
     </a>
 
-    <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" class="card" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>Kasir Toko Anis</h3>
       <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok.</p>
     </a>
 
-    <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" class="card" data-aos="fade-up" data-aos-delay="300">
+    <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="300">
       <h3>Warkop Singo</h3>
       <p>Website company profile untuk UMKM kuliner.</p>
     </a>
@@ -288,7 +288,7 @@ footer a {
   <div class="container" data-aos="fade-up">
     <h2>Siap Mulai Project?</h2>
     <p style="color:#cbd5e1;font-size:16px;margin-bottom:20px;">Konsultasi gratis via WhatsApp. Respon cepat di jam kerja.</p>
-    <a href="https://wa.me/62895351432524" class="btn">Chat Sekarang: 0895-3514-32524</a>
+    <a href="#" onclick="openWA()" class="btn">Chat Sekarang: 0895-3514-32524</a>
   </div>
 </div>
 
@@ -296,29 +296,13 @@ footer a {
   <div class="container">
     <p>© 2026 Sdev. All rights reserved.</p>
     <p style="margin-top:8px;">
-      Kode ini dirilis di bawah <a href="/LICENSE" target="_blank">MIT License</a>
+      Kode ini dirilis di bawah <a href="/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
     </p>
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({duration: 800, once: true, offset: 100});
-
-// Anti-Phising: Warning kalau klik link luar
-document.querySelectorAll('a[target="_blank"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const url = this.href;
-    const isExternal =!url.includes(window.location.hostname);
-
-    if(isExternal &&!url.includes('wa.me')) {
-      if(!confirm('⚠️ Kamu akan keluar ke website eksternal:\n' + url + '\n\nPastikan ini website resmi. Lanjutkan?')) {
-        e.preventDefault();
-      }
-    }
-  });
-});
-</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-fYcmG6fM/5MNhdSlwv4UhGhkBkmXYEUTDkLGOiLBdNzWqAe9iP3PyPR3AZQR+gdJ" crossorigin="anonymous"></script>
+<script src="/script.js" defer></script>
 
 </body>
   </html>
