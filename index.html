@@ -7,7 +7,6 @@
 <meta name="google-site-verification" content="ctLb4NTy167TKH-eNXjgJjLugB1RU2inZ72iN-VXt9c" />
 <meta name="description" content="Jasa pembuatan website, aplikasi kasir digital, fullstack serverless. Konsultasi gratis.">
 
-<!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,7 +14,6 @@
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffc107">
 
-<!-- Security Headers -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -23,7 +21,7 @@
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" integrity="sha384-4NzSKymBG8YrxxD1mU0iMTy9fZow+2UAZgF+eBkW7b7jw2B6b1s0U6YzPzX+QmL7" crossorigin="anonymous">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
 * {margin:0;padding:0;box-sizing:border-box;}
@@ -34,8 +32,6 @@ body {
   color: #ffffff;
 }
 .container {max-width:700px;margin:0 auto;padding:20px;}
-
-/* Header rapi di mobile */
 .header {
   background:#0a0f1c;
   padding:12px 16px;
@@ -65,7 +61,6 @@ body {
   padding:6px 0;
 }
 .menu a:hover {color:#ffc107;}
-
 .section {padding:40px 20px;}
 .section h2 {
   text-align:center;
@@ -73,7 +68,6 @@ body {
   color:#ffc107;
   margin-bottom:30px;
 }
-
 .card {
   background:#1a2233;
   border:1px solid #2d3748;
@@ -102,7 +96,6 @@ body {
   padding-left:20px;
 }
 .card ul li {margin:6px 0;}
-
 .warning-box {
   background:#2d1b1b;
   border:2px solid #ef4444;
@@ -119,7 +112,6 @@ body {
   color:#fca5a5;
   font-size:14px;
 }
-
 .skills {
   display:flex;
   flex-wrap:wrap;
@@ -134,7 +126,6 @@ body {
   font-size:14px;
   font-weight:600;
 }
-
 .btn {
   display:inline-block;
   padding:14px 30px;
@@ -145,9 +136,12 @@ body {
   border-radius:8px;
   text-align:center;
   margin-top:15px;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
 }
 .btn:hover {background:#ffcd57;}
-
+.btn:disabled {opacity:0.6;cursor:not-allowed;}
 footer {
   text-align:center;
   padding:30px 20px;
@@ -156,12 +150,30 @@ footer {
   border-top:1px solid rgba(255,255,255,0.1);
   font-size:14px;
 }
-footer a {
-  color:#ffc107;
-  text-decoration:none;
+footer a {color:#ffc107;text-decoration:none;}
+.kenapa-sdev {margin:40px 0;}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
-
-/* Responsive */
+.item {
+  background:#1a2233;
+  padding:15px;
+  border-radius:10px;
+  border-left:3px solid #ffc107;
+}
+.item h4 {color:#fff;margin:0 0 8px 0;font-size:16px;}
+.item p {color:#bbb;margin:0;font-size:14px;}
+.demo-audio {
+  background:#1a2233;
+  padding:20px;
+  border-radius:12px;
+  margin:25px 0;
+  text-align:center;
+}
+.demo-audio h3 {color:#ffc107;margin-bottom:10px;}
+.demo-audio p {color:#cbd5e1;font-size:14px;margin-bottom:15px;}
 @media (max-width: 480px) {
   .logo {font-size:24px;}
   .menu {gap:10px;}
@@ -177,6 +189,7 @@ footer a {
   <div class="header-wrap">
     <div class="logo">Sdev</div>
     <div class="menu">
+      <a href="#kenapa">Kenapa Sdev</a>
       <a href="#layanan">Layanan</a>
       <a href="#profile">Profile</a>
       <a href="#portofolio">Portofolio</a>
@@ -188,20 +201,47 @@ footer a {
   </div>
 </div>
 
-<!-- Hero -->
 <div class="section" data-aos="fade-up">
   <div class="container" style="text-align:center;">
     <h1 style="font-size:32px;margin-bottom:15px;color:#ffffff;">Bikin Website & Sistem Kasir Digital Tanpa Ribet</h1>
     <p style="color:#cbd5e1;font-size:16px;margin-bottom:25px;">Fullstack Serverless, Cepat, SEO Friendly. Konsultasi Gratis.</p>
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20konsultasi%20website" class="btn">Konsultasi Gratis via WhatsApp</a>
+    
+    <div class="demo-audio" data-aos="fade-up" data-aos-delay="200">
+      <h3>🔊 Dengerin Suaranya Dulu</h3>
+      <p id="demoText">Bikin Website & Sistem Kasir Digital Tanpa Ribet. Fullstack Serverless, Cepat, SEO Friendly.</p>
+      <button id="playBtn" class="btn">🔊 Dengerin Halaman Ini</button>
+    </div>
   </div>
 </div>
 
-<!-- Layanan -->
+<div id="kenapa" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">Kenapa Pilih Sdev</h2>
+    <div class="grid">
+      <div class="item" data-aos="fade-up" data-aos-delay="100">
+        <h4>⚡ Cepat & Ringan</h4>
+        <p>Serverless + PWA bikin website jalan kilat bahkan di koneksi lemot.</p>
+      </div>
+      <div class="item" data-aos="fade-up" data-aos-delay="200">
+        <h4>🛡️ Aman dari Phishing</h4>
+        <p>Dapat extension anti-phising gratis buat jaga data klien lu.</p>
+      </div>
+      <div class="item" data-aos="fade-up" data-aos-delay="300">
+        <h4>🔊 Aksesibel</h4>
+        <p>Fitur Audio Text AI bawaan browser, gak perlu install apa-apa.</p>
+      </div>
+      <div class="item" data-aos="fade-up" data-aos-delay="400">
+        <h4>💬 Konsultasi Gratis</h4>
+        <p>Tanya apa aja via WhatsApp. Gak jadi bikin juga gak apa-apa.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="layanan" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Layanan Kami</h2>
-
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20website%20Company%20Profile" class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Website Company Profile</h3>
       <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
@@ -210,17 +250,14 @@ footer a {
         <li><strong>Isinya:</strong> Beranda, Tentang Kami, Layanan, Kontak, Lokasi Google Maps</li>
       </ul>
     </a>
-
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20Desain%20UI%2FUX" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>🎨 Desain UI/UX</h3>
       <p>Desain modern yang bikin pengunjung betah dan konversi naik.</p>
     </a>
-
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20SEO%20%26%20Digital%20Marketing" class="card" data-aos="fade-up" data-aos-delay="300">
       <h3>📈 SEO & Digital Marketing</h3>
       <p>Biar bisnis kamu gampang ditemukan di Google dan media sosial.</p>
     </a>
-
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20Sistem%20Kasir%20Digital" class="card" data-aos="fade-up" data-aos-delay="400">
       <h3>💻 Sistem Kasir Digital</h3>
       <p>Sistem kasir mirip Alfamart. Tinggal scan barcode, bayar, laporan otomatis.</p>
@@ -228,7 +265,6 @@ footer a {
   </div>
 </div>
 
-<!-- Profile -->
 <div id="profile" class="section" style="background:#1a2233;">
   <div class="container">
     <h2 data-aos="fade-up">Tentang Saya</h2>
@@ -246,27 +282,21 @@ footer a {
   </div>
 </div>
 
-<!-- Portofolio -->
 <div id="portofolio" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Portofolio Project</h2>
-
     <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Penipuan</h3>
       <p>Website edukasi & awareness anti penipuan online.</p>
     </a>
-
     <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>Kasir Toko Anis</h3>
       <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok.</p>
     </a>
-
     <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="300">
       <h3>Warkop Singo</h3>
       <p>Website company profile untuk UMKM kuliner.</p>
     </a>
-
-    <!-- PORTO BARU: Olshop Store -->
     <a href="https://semb-commits.github.io/Olshop-Store/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="400">
       <h3>🛒 Olshop Store</h3>
       <p>Template toko online siap pakai. Pelanggan pilih barang, langsung kirim ke WhatsApp tanpa ribet login.</p>
@@ -275,17 +305,23 @@ footer a {
         <li><strong>Teknologi:</strong> HTML, CSS, JavaScript Vanilla</li>
       </ul>
     </a>
+    <a href="https://semb-commits.github.io/undangan-pernikahan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="500">
+      <h3>💒 Undangan Pernikahan Digital</h3>
+      <p>Website undangan pernikahan modern, interaktif, dan bisa diakses di HP. Hemat biaya cetak.</p>
+      <ul>
+        <li><strong>Fitur:</strong> RSVP, galeri foto, countdown, map lokasi</li>
+        <li><strong>Teknologi:</strong> HTML, CSS, JavaScript Vanilla</li>
+      </ul>
+    </a>
   </div>
 </div>
 
-<!-- LES PRIVATE BARU -->
 <div id="les-private" class="section" style="background:#1a2233;">
   <div class="container">
     <h2 data-aos="fade-up">Les Private Programming Tulungagung</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Belajar Bikin Website Bareng Gue</h3>
       <p>Khusus area Tulungagung offline, luar kota bisa online via Zoom/Google Meet. Cocok buat SMA, Mahasiswa, dan yang mau ganti karir jadi programmer.</p>
-      
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px;">
         <div>
           <h4 style="color:#ffc107;margin-bottom:8px;">Materi</h4>
@@ -306,13 +342,11 @@ footer a {
           </ul>
         </div>
       </div>
-
       <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20mau%20tanya%20les%20private%20Tulungagung" class="btn" style="width:100%;margin-top:20px;">Tanya Les Private via WA</a>
     </div>
   </div>
 </div>
 
-<!-- LOKASI BARU -->
 <div id="lokasi" class="section">
   <div class="container" style="text-align:center;">
     <h2 data-aos="fade-up">Area Layanan</h2>
@@ -325,14 +359,12 @@ footer a {
   </div>
 </div>
 
-<!-- Anti-Phising -->
 <div id="antiphising" class="section" style="background:#1a2233;">
   <div class="container">
     <h2 data-aos="fade-up">🔒 Layanan Anti-Phising</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Apa Itu Anti-Phising?</h3>
       <p>Fitur untuk melindungi website dan user dari serangan phishing. Phishing itu penipuan online yang nyamar jadi website asli buat nyuri data login, kartu kredit, dll.</p>
-
       <h3 style="margin-top:20px;">Yang Saya Lakukan:</h3>
       <ul>
         <li><strong>Scan Link Otomatis:</strong> Deteksi link keluar yang mencurigakan sebelum user klik</li>
@@ -341,7 +373,6 @@ footer a {
         <li><strong>Content Security Policy:</strong> Blokir script berbahaya dari luar</li>
         <li><strong>Edukasi User:</strong> Halaman edukasi cara kenali website palsu</li>
       </ul>
-
       <div class="warning-box">
         <h4>⚠️ Peringatan Keamanan</h4>
         <p>Sdev tidak pernah minta password, OTP, atau data kartu kredit via WhatsApp/Email. Kalau ada yang ngaku-ngaku, itu penipuan. Laporkan ke saya.</p>
@@ -350,7 +381,6 @@ footer a {
   </div>
 </div>
 
-<!-- Kontak -->
 <div id="kontak" class="section" style="text-align:center;">
   <div class="container" data-aos="fade-up">
     <h2>Siap Mulai Project?</h2>
@@ -368,9 +398,47 @@ footer a {
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-fYcmG6fM/5MNhdSlwv4UhGhkBkmXYEUTDkLGOiLBdNzWqAe9iP3PyPR3AZQR+gdJ" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
+
+// Audio Text AI - Web Speech API, gak perlu API key
+const playBtn = document.getElementById('playBtn');
+
+playBtn.addEventListener('click', () => {
+  if (!('speechSynthesis' in window)) {
+    alert('Browser lu gak support Text-to-Speech. Pakai Chrome terbaru ya.');
+    return;
+  }
+
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    playBtn.innerText = '🔊 Dengerin Halaman Ini';
+    return;
+  }
+
+  const text = document.getElementById('demoText').innerText;
+  const speech = new SpeechSynthesisUtterance(text);
+  
+  speech.lang = 'id-ID';
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  speech.onstart = () => {
+    playBtn.innerText = '⏸️ Stop';
+  };
+  
+  speech.onend = () => {
+    playBtn.innerText = '🔊 Dengerin Halaman Ini';
+  };
+
+  speech.onerror = () => {
+    alert('Gagal memutar audio. Coba refresh halaman.');
+    playBtn.innerText = '🔊 Dengerin Halaman Ini';
+  };
+
+  speechSynthesis.speak(speech);
+});
 </script>
 
 </body>
