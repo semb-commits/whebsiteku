@@ -14,7 +14,8 @@
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffc107">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
+<!-- Fix CSP biar JS inline jalan -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -77,6 +78,8 @@ body {
   text-decoration:none;
   display:block;
   transition:0.3s;
+  height:auto; /* Fix kepotong */
+  overflow:visible; /* Fix kepotong */
 }
 .card:active {transform:scale(0.98);background:#232b3d;}
 .card h3 {
@@ -112,20 +115,6 @@ body {
   color:#fca5a5;
   font-size:14px;
 }
-.skills {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:15px;
-}
-.skill {
-  background:#ffc107;
-  color:#0a0f1c;
-  padding:8px 15px;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:600;
-}
 .btn {
   display:inline-block;
   padding:14px 30px;
@@ -141,7 +130,6 @@ body {
   font-size:15px;
 }
 .btn:hover {background:#ffcd57;}
-.btn:disabled {opacity:0.6;cursor:not-allowed;}
 footer {
   text-align:center;
   padding:30px 20px;
@@ -151,7 +139,6 @@ footer {
   font-size:14px;
 }
 footer a {color:#ffc107;text-decoration:none;}
-.kenapa-sdev {margin:40px 0;}
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -208,8 +195,9 @@ footer a {color:#ffc107;text-decoration:none;}
   to { transform: translateX(-50%); }
 }
 
-/* FAQ Accordion */
+/* FAQ Accordion - Pure CSS, gak pake JS biar gak ke-block CSP */
 .faq-item { background: #1a2233; margin-bottom: 15px; border-radius: 10px; overflow: hidden; border:1px solid #2d3748; }
+.faq-toggle { display:none; }
 .faq-question {
   padding: 20px;
   cursor: pointer;
@@ -225,8 +213,13 @@ footer a {color:#ffc107;text-decoration:none;}
   padding: 0 20px;
   color: #94a3b8;
 }
-.faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
-.faq-item.active .arrow { transform: rotate(180deg); }
+.faq-toggle:checked ~ .faq-answer { 
+  max-height: 300px; 
+  padding-bottom: 20px; 
+}
+.faq-toggle:checked ~ .faq-question .arrow { 
+  transform: rotate(180deg); 
+}
 .arrow { transition: 0.3s; color:#ffc107; }
 
 @media (max-width: 480px) {
@@ -281,7 +274,6 @@ footer a {color:#ffc107;text-decoration:none;}
     <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind">
     <img src="https://cdn.simpleicons.org/node.js/339933" alt="Node">
     <img src="https://cdn.simpleicons.org/git/F05032" alt="Git">
-    <!-- Duplikat buat loop mulus -->
     <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML">
     <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS">
     <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">
@@ -340,7 +332,7 @@ footer a {color:#ffc107;text-decoration:none;}
     <h2 data-aos="fade-up">Tentang Saya</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Halo, Saya Sdev</h3>
-      <p>Developer Fullstack Freelance. Fokus bantu UMKM go digital tanpa ribet dan mahal. Base di Tulungagung, siap kerja remote seluruh Indonesia.</p>
+      <p>Developer <strong>Fullstack Serverless</strong> Freelance. Fokus bantu UMKM go digital tanpa ribet dan mahal. Base di Tulungagung, siap kerja remote seluruh Indonesia.</p>
       
       <!-- Skill Bar Animasi -->
       <div class="skill-bars" id="skillBars">
@@ -376,6 +368,14 @@ footer a {color:#ffc107;text-decoration:none;}
       <h3>Kasir Toko Anis</h3>
       <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok.</p>
     </a>
+    <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="300">
+      <h3>Warkop Singo</h3>
+      <p>Website company profile untuk UMKM kuliner.</p>
+    </a>
+    <a href="https://semb-commits.github.io/Olshop-Store/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="400">
+      <h3>🛒 Olshop Store</h3>
+      <p>Template toko online siap pakai. Pelanggan pilih barang, langsung kirim ke WhatsApp tanpa ribet login.</p>
+    </a>
   </div>
 </div>
 
@@ -406,51 +406,59 @@ footer a {color:#ffc107;text-decoration:none;}
     <h2 data-aos="fade-up">🔒 Layanan Anti-Phising</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Apa Itu Anti-Phising?</h3>
-      <p>Fitur untuk melindungi website dan user dari serangan phishing.</p>
+      <p>Fitur untuk melindungi website dan user dari serangan phishing. Phishing itu penipuan online yang nyamar jadi website asli buat nyuri data login, kartu kredit, dll.</p>
+      <div class="warning-box">
+        <h4>⚠️ Peringatan Keamanan</h4>
+        <p>Sdev tidak pernah minta password, OTP, atau data kartu kredit via WhatsApp/Email. Kalau ada yang ngaku-ngaku, itu penipuan. Laporkan ke saya.</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- FAQ Section -->
+<!-- FAQ Section - Pure CSS Accordion -->
 <div id="faq" class="section">
   <div class="container">
     <h2 data-aos="fade-up">FAQ</h2>
     
     <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-      <div class="faq-question">
+      <input type="checkbox" id="faq1" class="faq-toggle">
+      <label for="faq1" class="faq-question">
         <span>Berapa lama bikin website?</span>
         <span class="arrow">↓</span>
-      </div>
+      </label>
       <div class="faq-answer">
         Landing page 2-3 hari, company profile 5-7 hari. Tergantung revisi dan materi dari kamu.
       </div>
     </div>
 
     <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-      <div class="faq-question">
+      <input type="checkbox" id="faq2" class="faq-toggle">
+      <label for="faq2" class="faq-question">
         <span>Harga mulai berapa?</span>
         <span class="arrow">↓</span>
-      </div>
+      </label>
       <div class="faq-answer">
         Mulai 500rb untuk landing page 1 halaman. Chat aja buat nego sesuai kebutuhan.
       </div>
     </div>
 
     <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-      <div class="faq-question">
+      <input type="checkbox" id="faq3" class="faq-toggle">
+      <label for="faq3" class="faq-question">
         <span>Bisa revisi berapa kali?</span>
         <span class="arrow">↓</span>
-      </div>
+      </label>
       <div class="faq-answer">
         Free revisi 3x. Lebih dari itu kena charge kecil sesuai tingkat revisi.
       </div>
     </div>
 
     <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-      <div class="faq-question">
+      <input type="checkbox" id="faq4" class="faq-toggle">
+      <label for="faq4" class="faq-question">
         <span>Apakah dapat domain & hosting?</span>
         <span class="arrow">↓</span>
-      </div>
+      </label>
       <div class="faq-answer">
         Bisa. Gue bantu setup domain .com/.id + hosting gratis Netlify/Vercel. Domain bayar sendiri per tahun.
       </div>
@@ -477,6 +485,7 @@ footer a {color:#ffc107;text-decoration:none;}
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+// AOS Init
 AOS.init();
 
 // Skill Bar Animation
@@ -491,14 +500,7 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 skillObserver.observe(document.getElementById('skillBars'));
 
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(item => {
-  item.addEventListener('click', () => {
-    item.parentElement.classList.toggle('active');
-  });
-});
-
-// Audio Text AI
+// Audio Text AI - pake 'unsafe-inline' di CSP biar jalan
 const playBtn = document.getElementById('playBtn');
 playBtn.addEventListener('click', () => {
   if (!('speechSynthesis' in window)) {
