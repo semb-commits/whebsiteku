@@ -14,7 +14,6 @@
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffc107">
 
-<!-- Fix CSP biar JS inline jalan -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -78,8 +77,8 @@ body {
   text-decoration:none;
   display:block;
   transition:0.3s;
-  height:auto; /* Fix kepotong */
-  overflow:visible; /* Fix kepotong */
+  height:auto;
+  overflow:visible;
 }
 .card:active {transform:scale(0.98);background:#232b3d;}
 .card h3 {
@@ -162,14 +161,12 @@ footer a {color:#ffc107;text-decoration:none;}
 .demo-audio h3 {color:#ffc107;margin-bottom:10px;}
 .demo-audio p {color:#cbd5e1;font-size:14px;margin-bottom:15px;}
 
-/* Skill Bar Animasi */
 .skill-bars { max-width:700px; margin:30px 0 0 0; }
 .skill-item { margin-bottom: 25px; }
 .skill-name { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color:#fff; }
 .skill-bar { width: 100%; height: 10px; background: #2d3748; border-radius: 10px; overflow: hidden; }
 .skill-fill { height: 100%; width: 0; background: linear-gradient(90deg, #ffc107, #ffcd57); border-radius: 10px; transition: width 1.5s ease-out; }
 
-/* Tech Stack Carousel */
 .tech-carousel {
   overflow: hidden;
   white-space: nowrap;
@@ -195,7 +192,6 @@ footer a {color:#ffc107;text-decoration:none;}
   to { transform: translateX(-50%); }
 }
 
-/* FAQ Accordion - Pure CSS, gak pake JS biar gak ke-block CSP */
 .faq-item { background: #1a2233; margin-bottom: 15px; border-radius: 10px; overflow: hidden; border:1px solid #2d3748; }
 .faq-toggle { display:none; }
 .faq-question {
@@ -264,7 +260,6 @@ footer a {color:#ffc107;text-decoration:none;}
   </div>
 </div>
 
-<!-- Tech Stack Carousel -->
 <div class="tech-carousel" data-aos="fade-up">
   <div class="tech-track">
     <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML">
@@ -334,7 +329,6 @@ footer a {color:#ffc107;text-decoration:none;}
       <h3>Halo, Saya Sdev</h3>
       <p>Developer <strong>Fullstack Serverless</strong> Freelance. Fokus bantu UMKM go digital tanpa ribet dan mahal. Base di Tulungagung, siap kerja remote seluruh Indonesia.</p>
       
-      <!-- Skill Bar Animasi -->
       <div class="skill-bars" id="skillBars">
         <div class="skill-item">
           <div class="skill-name"><span>HTML & CSS</span><span>90%</span></div>
@@ -360,11 +354,42 @@ footer a {color:#ffc107;text-decoration:none;}
 <div id="portofolio" class="section">
   <div class="container">
     <h2 data-aos="fade-up">Portofolio Project</h2>
-    <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="100">
+    
+    <a href="https://github.com/semb-commits/header-hunter" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="50">
+      <h3>🔍 Header Hunter</h3>
+      <p>CLI tool untuk analisa HTTP header dan tech stack website langsung di Termux. 
+         Deteksi Server, Cloudflare, PHP/Node, response time dalam 1 command.</p>
+      <ul>
+        <li>Tech: Python, Requests, Colorama</li>
+        <li>Install: <code style="background:#0a0f1c;padding:2px 6px;border-radius:4px;">bash &lt;(curl -s https://raw.githubusercontent.com/semb-commits/header-hunter/main/install-header.sh)</code></li>
+      </ul>
+    </a>
+
+    <a href="https://github.com/semb-commits/portsweep" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>⚡ PortSweep</h3>
+      <p>Fast port scanner pakai Python socket + multithreading untuk Termux. 
+         Scan port terbuka di server/IP tertentu dalam hitungan detik.</p>
+      <ul>
+        <li>Tech: Python, Sockets, Threading</li>
+        <li>Install: <code style="background:#0a0f1c;padding:2px 6px;border-radius:4px;">bash &lt;(curl -s https://raw.githubusercontent.com/semb-commits/portsweep/main/install-portsweep.sh)</code></li>
+      </ul>
+    </a>
+
+    <a href="https://github.com/semb-commits/webcheck-tool" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="150">
+      <h3>🌐 Webcheck Tool</h3>
+      <p>Tool monitoring uptime website di Termux. Cek status HTTP, response time, 
+         dan tau kalau website down langsung dari terminal.</p>
+      <ul>
+        <li>Tech: Python, Requests</li>
+        <li>Install: <code style="background:#0a0f1c;padding:2px 6px;border-radius:4px;">bash &lt;(curl -s https://raw.githubusercontent.com/semb-commits/webcheck-tool/main/install-webcheck.sh)</code></li>
+      </ul>
+    </a>
+
+    <a href="https://linles263-sudo.github.io/Penipuan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>Penipuan</h3>
       <p>Website edukasi & awareness anti penipuan online.</p>
     </a>
-    <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="200">
+    <a href="https://linles263-sudo.github.io/Kasir-toko-anis/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="250">
       <h3>Kasir Toko Anis</h3>
       <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok.</p>
     </a>
@@ -372,7 +397,7 @@ footer a {color:#ffc107;text-decoration:none;}
       <h3>Warkop Singo</h3>
       <p>Website company profile untuk UMKM kuliner.</p>
     </a>
-    <a href="https://semb-commits.github.io/Olshop-Store/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="400">
+    <a href="https://semb-commits.github.io/Olshop-Store/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="350">
       <h3>🛒 Olshop Store</h3>
       <p>Template toko online siap pakai. Pelanggan pilih barang, langsung kirim ke WhatsApp tanpa ribet login.</p>
     </a>
@@ -415,7 +440,6 @@ footer a {color:#ffc107;text-decoration:none;}
   </div>
 </div>
 
-<!-- FAQ Section - Pure CSS Accordion -->
 <div id="faq" class="section">
   <div class="container">
     <h2 data-aos="fade-up">FAQ</h2>
@@ -485,10 +509,8 @@ footer a {color:#ffc107;text-decoration:none;}
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-// AOS Init
 AOS.init();
 
-// Skill Bar Animation
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -500,7 +522,6 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 skillObserver.observe(document.getElementById('skillBars'));
 
-// Audio Text AI - pake 'unsafe-inline' di CSP biar jalan
 const playBtn = document.getElementById('playBtn');
 playBtn.addEventListener('click', () => {
   if (!('speechSynthesis' in window)) {
