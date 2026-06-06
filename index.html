@@ -174,6 +174,61 @@ footer a {color:#ffc107;text-decoration:none;}
 }
 .demo-audio h3 {color:#ffc107;margin-bottom:10px;}
 .demo-audio p {color:#cbd5e1;font-size:14px;margin-bottom:15px;}
+
+/* Skill Bar Animasi */
+.skill-bars { max-width:700px; margin:30px 0 0 0; }
+.skill-item { margin-bottom: 25px; }
+.skill-name { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color:#fff; }
+.skill-bar { width: 100%; height: 10px; background: #2d3748; border-radius: 10px; overflow: hidden; }
+.skill-fill { height: 100%; width: 0; background: linear-gradient(90deg, #ffc107, #ffcd57); border-radius: 10px; transition: width 1.5s ease-out; }
+
+/* Tech Stack Carousel */
+.tech-carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #1a2233;
+  padding: 30px 0;
+  margin: 40px 0;
+}
+.tech-track {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+.tech-track img {
+  height: 40px;
+  margin: 0 30px;
+  filter: grayscale(100%) brightness(0.8);
+  transition: 0.3s;
+}
+.tech-track img:hover {
+  filter: grayscale(0%) brightness(1);
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* FAQ Accordion */
+.faq-item { background: #1a2233; margin-bottom: 15px; border-radius: 10px; overflow: hidden; border:1px solid #2d3748; }
+.faq-question {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color:#fff;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+  color: #94a3b8;
+}
+.faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
+.faq-item.active .arrow { transform: rotate(180deg); }
+.arrow { transition: 0.3s; color:#ffc107; }
+
 @media (max-width: 480px) {
   .logo {font-size:24px;}
   .menu {gap:10px;}
@@ -196,6 +251,7 @@ footer a {color:#ffc107;text-decoration:none;}
       <a href="#les-private">Les Private</a>
       <a href="#lokasi">Lokasi</a>
       <a href="#antiphising">Anti-Phising</a>
+      <a href="#faq">FAQ</a>
       <a href="#kontak">Kontak</a>
     </div>
   </div>
@@ -212,6 +268,24 @@ footer a {color:#ffc107;text-decoration:none;}
       <p id="demoText">Bikin Website & Sistem Kasir Digital Tanpa Ribet. Fullstack Serverless, Cepat, SEO Friendly.</p>
       <button id="playBtn" class="btn">🔊 Dengerin Halaman Ini</button>
     </div>
+  </div>
+</div>
+
+<!-- Tech Stack Carousel -->
+<div class="tech-carousel" data-aos="fade-up">
+  <div class="tech-track">
+    <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML">
+    <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS">
+    <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">
+    <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">
+    <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind">
+    <img src="https://cdn.simpleicons.org/node.js/339933" alt="Node">
+    <img src="https://cdn.simpleicons.org/git/F05032" alt="Git">
+    <!-- Duplikat buat loop mulus -->
+    <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML">
+    <img src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS">
+    <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">
+    <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">
   </div>
 </div>
 
@@ -245,10 +319,6 @@ footer a {color:#ffc107;text-decoration:none;}
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20website%20Company%20Profile" class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Website Company Profile</h3>
       <p>Landing page cepat, mobile-friendly, dan mudah diedit. Cocok buat profil usaha.</p>
-      <ul>
-        <li><strong>Apa itu:</strong> Website resmi perusahaan/UMKM untuk perkenalan bisnis online</li>
-        <li><strong>Isinya:</strong> Beranda, Tentang Kami, Layanan, Kontak, Lokasi Google Maps</li>
-      </ul>
     </a>
     <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20saya%20mau%20Desain%20UI%2FUX" class="card" data-aos="fade-up" data-aos-delay="200">
       <h3>🎨 Desain UI/UX</h3>
@@ -271,12 +341,25 @@ footer a {color:#ffc107;text-decoration:none;}
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Halo, Saya Sdev</h3>
       <p>Developer Fullstack Freelance. Fokus bantu UMKM go digital tanpa ribet dan mahal. Base di Tulungagung, siap kerja remote seluruh Indonesia.</p>
-      <div class="skills">
-        <div class="skill">Fullstack Serverless</div>
-        <div class="skill">Frontend</div>
-        <div class="skill">Backend</div>
-        <div class="skill">Sistem Kasir Digital</div>
-        <div class="skill">SEO Optimization</div>
+      
+      <!-- Skill Bar Animasi -->
+      <div class="skill-bars" id="skillBars">
+        <div class="skill-item">
+          <div class="skill-name"><span>HTML & CSS</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>JavaScript</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>React</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Node.js</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -293,26 +376,6 @@ footer a {color:#ffc107;text-decoration:none;}
       <h3>Kasir Toko Anis</h3>
       <p>Sistem kasir digital POS. Fitur scan barcode, manajemen stok.</p>
     </a>
-    <a href="https://linles263-sudo.github.io/Warkop-singo/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="300">
-      <h3>Warkop Singo</h3>
-      <p>Website company profile untuk UMKM kuliner.</p>
-    </a>
-    <a href="https://semb-commits.github.io/Olshop-Store/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="400">
-      <h3>🛒 Olshop Store</h3>
-      <p>Template toko online siap pakai. Pelanggan pilih barang, langsung kirim ke WhatsApp tanpa ribet login.</p>
-      <ul>
-        <li><strong>Fitur:</strong> Katalog produk, keranjang, checkout via WA otomatis</li>
-        <li><strong>Teknologi:</strong> HTML, CSS, JavaScript Vanilla</li>
-      </ul>
-    </a>
-    <a href="https://semb-commits.github.io/undangan-pernikahan/" target="_blank" rel="noopener noreferrer" class="card" data-aos="fade-up" data-aos-delay="500">
-      <h3>💒 Undangan Pernikahan Digital</h3>
-      <p>Website undangan pernikahan modern, interaktif, dan bisa diakses di HP. Hemat biaya cetak.</p>
-      <ul>
-        <li><strong>Fitur:</strong> RSVP, galeri foto, countdown, map lokasi</li>
-        <li><strong>Teknologi:</strong> HTML, CSS, JavaScript Vanilla</li>
-      </ul>
-    </a>
   </div>
 </div>
 
@@ -321,27 +384,7 @@ footer a {color:#ffc107;text-decoration:none;}
     <h2 data-aos="fade-up">Les Private Programming Tulungagung</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Belajar Bikin Website Bareng Gue</h3>
-      <p>Khusus area Tulungagung offline, luar kota bisa online via Zoom/Google Meet. Cocok buat SMA, Mahasiswa, dan yang mau ganti karir jadi programmer.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px;">
-        <div>
-          <h4 style="color:#ffc107;margin-bottom:8px;">Materi</h4>
-          <ul>
-            <li>HTML, CSS, JavaScript Dasar</li>
-            <li>Bikin Website Toko Online</li>
-            <li>React & Tailwind</li>
-            <li>Python Dasar</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="color:#ffc107;margin-bottom:8px;">Info Kelas</h4>
-          <ul>
-            <li>1-on-1, jadwal fleksibel</li>
-            <li>Paket 8x pertemuan: 800rb</li>
-            <li>Free konsultasi project</li>
-            <li>Bisa request materi</li>
-          </ul>
-        </div>
-      </div>
+      <p>Khusus area Tulungagung offline, luar kota bisa online via Zoom/Google Meet.</p>
       <a href="https://wa.me/62895351432524?text=Halo%20Sdev%2C%20mau%20tanya%20les%20private%20Tulungagung" class="btn" style="width:100%;margin-top:20px;">Tanya Les Private via WA</a>
     </div>
   </div>
@@ -352,9 +395,8 @@ footer a {color:#ffc107;text-decoration:none;}
     <h2 data-aos="fade-up">Area Layanan</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>📍 Base di Tulungagung</h3>
-      <p>Melayani klien seluruh Indonesia. Untuk meeting offline, bisa ketemuan di area Tulungagung.</p>
+      <p>Melayani klien seluruh Indonesia.</p>
       <a href="https://maps.app.goo.gl/PDjECLsh32uUgjtz7" target="_blank" rel="noopener noreferrer" class="btn" style="background:#4285F4;color:#fff;">Lihat Lokasi di Google Maps</a>
-      <p style="margin-top:15px;font-size:14px;color:#94a3b8;">Keyword SEO: Jasa Website Tulungagung, Developer Tulungagung, Les Programming Tulungagung</p>
     </div>
   </div>
 </div>
@@ -364,18 +406,53 @@ footer a {color:#ffc107;text-decoration:none;}
     <h2 data-aos="fade-up">🔒 Layanan Anti-Phising</h2>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
       <h3>Apa Itu Anti-Phising?</h3>
-      <p>Fitur untuk melindungi website dan user dari serangan phishing. Phishing itu penipuan online yang nyamar jadi website asli buat nyuri data login, kartu kredit, dll.</p>
-      <h3 style="margin-top:20px;">Yang Saya Lakukan:</h3>
-      <ul>
-        <li><strong>Scan Link Otomatis:</strong> Deteksi link keluar yang mencurigakan sebelum user klik</li>
-        <li><strong>SSL & HTTPS:</strong> Pastikan website aman dengan sertifikat SSL</li>
-        <li><strong>Warning System:</strong> Muncul peringatan kalau user mau keluar ke domain asing</li>
-        <li><strong>Content Security Policy:</strong> Blokir script berbahaya dari luar</li>
-        <li><strong>Edukasi User:</strong> Halaman edukasi cara kenali website palsu</li>
-      </ul>
-      <div class="warning-box">
-        <h4>⚠️ Peringatan Keamanan</h4>
-        <p>Sdev tidak pernah minta password, OTP, atau data kartu kredit via WhatsApp/Email. Kalau ada yang ngaku-ngaku, itu penipuan. Laporkan ke saya.</p>
+      <p>Fitur untuk melindungi website dan user dari serangan phishing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div id="faq" class="section">
+  <div class="container">
+    <h2 data-aos="fade-up">FAQ</h2>
+    
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="faq-question">
+        <span>Berapa lama bikin website?</span>
+        <span class="arrow">↓</span>
+      </div>
+      <div class="faq-answer">
+        Landing page 2-3 hari, company profile 5-7 hari. Tergantung revisi dan materi dari kamu.
+      </div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="faq-question">
+        <span>Harga mulai berapa?</span>
+        <span class="arrow">↓</span>
+      </div>
+      <div class="faq-answer">
+        Mulai 500rb untuk landing page 1 halaman. Chat aja buat nego sesuai kebutuhan.
+      </div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="faq-question">
+        <span>Bisa revisi berapa kali?</span>
+        <span class="arrow">↓</span>
+      </div>
+      <div class="faq-answer">
+        Free revisi 3x. Lebih dari itu kena charge kecil sesuai tingkat revisi.
+      </div>
+    </div>
+
+    <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="faq-question">
+        <span>Apakah dapat domain & hosting?</span>
+        <span class="arrow">↓</span>
+      </div>
+      <div class="faq-answer">
+        Bisa. Gue bantu setup domain .com/.id + hosting gratis Netlify/Vercel. Domain bayar sendiri per tahun.
       </div>
     </div>
   </div>
@@ -402,41 +479,48 @@ footer a {color:#ffc107;text-decoration:none;}
 <script>
 AOS.init();
 
-// Audio Text AI - Web Speech API, gak perlu API key
-const playBtn = document.getElementById('playBtn');
+// Skill Bar Animation
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+    }
+  });
+}, { threshold: 0.3 });
+skillObserver.observe(document.getElementById('skillBars'));
 
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(item => {
+  item.addEventListener('click', () => {
+    item.parentElement.classList.toggle('active');
+  });
+});
+
+// Audio Text AI
+const playBtn = document.getElementById('playBtn');
 playBtn.addEventListener('click', () => {
   if (!('speechSynthesis' in window)) {
     alert('Browser lu gak support Text-to-Speech. Pakai Chrome terbaru ya.');
     return;
   }
-
   if (speechSynthesis.speaking) {
     speechSynthesis.cancel();
     playBtn.innerText = '🔊 Dengerin Halaman Ini';
     return;
   }
-
   const text = document.getElementById('demoText').innerText;
   const speech = new SpeechSynthesisUtterance(text);
-  
   speech.lang = 'id-ID';
   speech.rate = 1;
   speech.pitch = 1;
-
-  speech.onstart = () => {
-    playBtn.innerText = '⏸️ Stop';
-  };
-  
-  speech.onend = () => {
-    playBtn.innerText = '🔊 Dengerin Halaman Ini';
-  };
-
+  speech.onstart = () => { playBtn.innerText = '⏸️ Stop'; };
+  speech.onend = () => { playBtn.innerText = '🔊 Dengerin Halaman Ini'; };
   speech.onerror = () => {
     alert('Gagal memutar audio. Coba refresh halaman.');
     playBtn.innerText = '🔊 Dengerin Halaman Ini';
   };
-
   speechSynthesis.speak(speech);
 });
 </script>
